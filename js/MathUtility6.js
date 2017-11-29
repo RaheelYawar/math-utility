@@ -31,14 +31,30 @@ export default class MathUtility {
             pos2.x - pos1.x) * (pos2.x - pos1.x)));
     }
 
+    /**
+     * @param {number} min Minimum inclusive integer.
+     * @param {number} max Maximum inclusive integer.
+     * */
     static getRandomIntFromInterval(min, max) {
         return Math.floor((Math.random() * ((max - min) + 1)) + min);
     }
 
+    /**
+     * @param {number} s The number to map.
+     * @param {number} a1 From range min.
+     * @param {number} a2 From range max.
+     * @param {number} b1 To range min.
+     * @param {number} b2 To range max.
+     * */
     static mapNumberToRange(s, a1, a2, b1, b2) {
         return (b1 + (s - a1)) * ((b2 - b1) / (a2 - a1));
     }
 
+    /**
+     * @param {number} v The number to clamp
+     * @param {number} min The minimum value of the range.
+     * @param {number} max The maximum value of the range.
+     * */
     static clamp(v, min, max) {
         if (v < min) {
             return min;
@@ -49,6 +65,9 @@ export default class MathUtility {
         return v;
     }
 
+    /**
+     * @param {Array} array Resorts the array in a random order.
+     * */
     static shuffleArray(array) {
         let currentIndex = array.length;
         let temporaryValue;
@@ -68,5 +87,19 @@ export default class MathUtility {
         }
 
         return array;
+    }
+
+    /**
+     * @param {number} angle
+     * */
+    static toDegrees(angle) {
+        return angle * (180 / Math.PI);
+    }
+
+    /**
+     * @param {number} angle
+     * */
+    static toRadians(angle) {
+        return angle * (Math.PI / 180);
     }
 }

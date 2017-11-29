@@ -1,1 +1,7 @@
 .idea
+node_modules
+dist
+bower_components
+.tmp
+work/
+stats.*

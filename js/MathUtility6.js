@@ -10,7 +10,7 @@
 
 export default class MathUtility {
     static lerp(v0, v1, t) {
-        return ( (1-t)*v0 + t*v1 );
+        return (((1 - t) * v0) + (t * v1));
     }
 
     /**
@@ -19,7 +19,7 @@ export default class MathUtility {
      * @param {number} t The time.
      * */
     static lerp2D(v0, v1, t) {
-        return {x: ((1-t)*v0.x + t*v1.x), y: ((1-t)*v0.y + t*v1.y)};
+        return {x: (((1 - t) * v0.x) + (t * v1.x)), y: (((1 - t) * v0.y) + (t * v1.y))};
     }
 
     /**
@@ -27,48 +27,46 @@ export default class MathUtility {
      * @param {Object} pos2 First coordinate in the form: {x: 0, y: 0}.
      * */
     static getVector2Distance(pos1, pos2) {
-        return Math.sqrt( ((pos2.y - pos1.y) * (pos2.y - pos1.y)) + ((pos2.x - pos1.x) * (pos2.x - pos1.x)) );
+        return Math.sqrt(((pos2.y - pos1.y) * (pos2.y - pos1.y)) + ((
+            pos2.x - pos1.x) * (pos2.x - pos1.x)));
     }
 
-    static getRandomIntFromInterval(min,max) {
-        return Math.floor(Math.random()*(max-min+1)+min);
+    static getRandomIntFromInterval(min, max) {
+        return Math.floor((Math.random() * ((max - min) + 1)) + min);
     }
 
     static mapNumberToRange(s, a1, a2, b1, b2) {
-        return b1 + (s-a1)*(b2-b1)/(a2-a1);
+        return (b1 + (s - a1)) * ((b2 - b1) / (a2 - a1));
     }
 
     static clamp(v, min, max) {
-        if (v < min)
-        {
+        if (v < min) {
             return min;
-        }
-        else if (max < v)
-        {
+        } else if (max < v) {
             return max;
         }
-        else
-        {
-            return v;
-        }
+
+        return v;
     }
 
     static shuffleArray(array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
+        let currentIndex = array.length;
+        let temporaryValue;
+        let randomIndex;
+        const arrayClone = array;
 
         // While there remain elements to shuffle...
-        while (0 !== currentIndex) {
-
+        while (currentIndex !== 0) {
             // Pick a remaining element...
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex -= 1;
 
             // And swap it with the current element.
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
+            temporaryValue = arrayClone[currentIndex];
+            arrayClone[currentIndex] = arrayClone[randomIndex];
+            arrayClone[randomIndex] = temporaryValue;
         }
 
         return array;
     }
-};
+}

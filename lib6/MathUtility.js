@@ -156,4 +156,58 @@ export default class MathUtility {
         return Math.sqrt(((coord1.x - coord2.x) * (coord1.x - coord2.x))
             + ((coord1.y - coord2.y) * (coord1.y - coord2.y)));
     }
+
+    /**
+     * Bubble-sort an array of numbers.
+     *
+     * @param {Array} items
+     * */
+    static getBubbleSortedArray(items) {
+        const length = items.length;
+        for (let i = 0; i < length; i++) { // Number of passes
+            for (let j = 0; j < (length - i - 1); j++) { // Notice that j < (length - i)
+                // Compare the adjacent positions
+                if (items[j] > items[j + 1]) {
+                    // Swap the numbers
+                    const tmp = items[j];
+                    items[j] = items[j + 1]; // Replace current number with adjacent number
+                    items[j + 1] = tmp; // Replace adjacent number with current number
+                }
+            }
+        }
+    }
+
+    /**
+     * @param {Array} array
+     * */
+    static shuffleArray(array) {
+        let currentIndex = array.length;
+        let temporaryValue;
+        let randomIndex;
+
+        // While there remain elements to shuffle...
+        while (currentIndex !== 0) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
+    /**
+     * Convert the 1D array index to a 2D index.
+     *
+     * @param {Number} index
+     * @param {Number} arrayLength
+     * @return {Object} The (x, y) index.
+     * */
+    static get2dIndexVia1d(index, arrayLength) {
+        return {x: index / arrayLength, y: index % arrayLength};
+    }
 }

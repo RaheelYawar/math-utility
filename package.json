@@ -1,5 +1,6 @@
 {
     "name": "math-utility",
     "description": "",
-    "author": "Raheel Yawar <raheelyawar@gmail.com>"
+    "author": "Raheel Yawar <raheelyawar@gmail.com> (http://raheelyawar.com)",
+    "main": "lib/MathUtility.js"
 }

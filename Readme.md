@@ -1,1 +1,1 @@
-A bunch of math utility functions useful in game programming. 
+A collection of math utility functions useful in game programming. 
